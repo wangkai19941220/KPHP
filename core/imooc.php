@@ -10,8 +10,9 @@ class imooc
 {
     public static $classMap=array();
     static public function run(){
+        $route=new \core\lib\route();
+        p($route);
 
-        $route=new \core\route();
     }
     //自动加载类库
     //new \core\route();
