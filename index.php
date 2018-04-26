@@ -15,6 +15,8 @@ define('IMOOC',realpath('./'));
 define('CORE',IMOOC.'/core');
 //定义控制器、模型所处目录
 define('APP',IMOOC.'/app');
+//定义应用目录
+define('MODULE','app');
 //定义调试开关
 define('DEBUG',true);
 //根据调试开关是否开启调试模式
