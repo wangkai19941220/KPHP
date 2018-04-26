@@ -32,8 +32,6 @@ class imooc
     //IMOOC./core/route.php
     static public function load($class){
 
-
-
         if(isset($classMap[$class])){
             return true;
         }else{
@@ -48,7 +46,7 @@ class imooc
         }
     }
     public function assign($name,$value){
-        p($value);
+       //p($value);
         $this->assign[$name]=$value;
     }
     public function display($file){

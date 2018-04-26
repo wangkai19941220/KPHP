@@ -6,6 +6,7 @@
  * Time: 上午9:43
  */
 namespace core\lib;
+use core\lib\route;
 class route
 {
     public function __construct()
@@ -25,12 +26,17 @@ class route
                 $this->ctrl=$patharr[0];
 
             }
+            //$a=\core\lib\conf::get('CTRL','route');
+            //p(11);
             unset($patharr[0]);
             if(isset($patharr[1])){
                 $this->action=$patharr[1];
                 unset($patharr[1]);
             }else{
-                $this->action='index';
+
+                $this->action= conf::get('CTRL','route');
+
+
             }
             $count=count($patharr)+2;
             $i=2;
@@ -43,8 +49,9 @@ class route
             }
            // p($_GET);
         }else{
-            $this->ctrl='index';
-            $this->action='index';
+            $this->ctrl= conf::get('CTRL','route');
+            //p($this->ctrl);
+            $this->action= conf::get('ACTION','route');
         }
     }
 }

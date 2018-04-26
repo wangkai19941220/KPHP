@@ -12,6 +12,11 @@ class indexCtrl extends \core\imooc
     {
         //p('it is index');
        // $model=new \core\lib\model();
+        //p('1');
+        //$temp=\core\lib\conf::get('CTRL','route');
+        //$tem=\core\lib\conf::get('ACTION','route');
+        //p($temp);
+        //p($tem);
         $data='wangkai';
         $this->assign('data',$data);
         $this->display('index/index.html');
