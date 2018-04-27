@@ -11,6 +11,8 @@ class imooc
     public static $classMap=array();
     public $assign;
     static public function run(){
+        \core\lib\log::init();
+        \core\lib\log::log('test');
         $route=new \core\lib\route();
         $ctrlClass=$route->ctrl;
         $action=$route->action;
