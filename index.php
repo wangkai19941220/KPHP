@@ -20,7 +20,11 @@ define('MODULE','app');
 //定义调试开关
 define('DEBUG',true);
 //根据调试开关是否开启调试模式
+include "vendor/autoload.php";
 if(DEBUG){
+    $whoops = new \Whoops\Run;
+    $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+    $whoops->register();
     ini_set('display_error','On');
 }else{
     ini_set('display_error','Off');

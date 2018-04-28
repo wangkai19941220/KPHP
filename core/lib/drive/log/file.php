@@ -25,11 +25,9 @@ class file
          * */
         //p($this->path);exit;
         if(!is_dir($this->path)){
-            mkdir($this->path,'0777',true);
+            mkdir($this->path.date('YmdH'),'0777',true);
         }
-        $message=date('Y-m-d H:i:s').$message;
-        p($message);
-        return file_put_contents($this->path.$file.'.php',json_encode($message));
+        return file_put_contents($this->path.date('YmdH').$file.'.php',date('Y-m-d H:i:s').json_encode($message),PHP_EOL.FILE_APPEND);
 
     }
 }
