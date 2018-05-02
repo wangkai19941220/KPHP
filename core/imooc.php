@@ -56,8 +56,17 @@ class imooc
         $file=APP.'/views/'.$file;
         if(is_file($file)){
             //p($this->assign);exit;
-            extract($this->assign);
-            include $file;
+            //extract($this->assign);
+            \Twig_Autoloader::register();
+
+            $loader = new \Twig_Loader_Filesystem(APP.'/views');
+            $twig = new \Twig_Environment($loader, array(
+                'cache' => IMOOC.'/log',
+                'debug'=>DEBUG
+            ));
+            $template = $twig->load('index.html');
+            $template->display($this->assign ? $this->assign:'');
+
         }
     }
 }

@@ -9,6 +9,7 @@
  * 2 加载函数库
  * 3 启动框架
  */
+date_default_timezone_set("PRC");
 //定义框架根目录
 define('IMOOC',realpath('./'));
 //定义框架的核心文件目录
@@ -23,12 +24,16 @@ define('DEBUG',true);
 include "vendor/autoload.php";
 if(DEBUG){
     $whoops = new \Whoops\Run;
-    $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+    $errorTitle='框架出错了';
+    $option=new \Whoops\Handler\PrettyPageHandler();
+    $option->setPageTitle($errorTitle);
+    $whoops->pushHandler($option);
     $whoops->register();
     ini_set('display_error','On');
 }else{
     ini_set('display_error','Off');
 }
+//seee();
 //加载函数库
 include CORE.'/common/function.php';
 //启动框架
